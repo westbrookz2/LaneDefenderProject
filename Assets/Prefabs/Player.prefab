@@ -158,6 +158,7 @@ MonoBehaviour:
   muzzlePos: {fileID: 730734948845062474}
   moveSpeed: 5
   rb: {fileID: 744461919854223568}
+  animator: {fileID: 3278132883704066429}
 --- !u!95 &3278132883704066429
 Animator:
   serializedVersion: 7

@@ -46,14 +46,16 @@ public class GameManager : Singleton<GameManager>
     public void PlayerHurt()
     {
         _health.TakeDamage();
+        _playerController.animator.SetTrigger("hit");
         if (_health.isDead)
         {
             //death condition
+            _playerController.animator.SetBool("dead", true);
 
             GameOver();
         }
     }
-    public void GameOver()
+    public void GameOver() //wondering how to show player game over (making the player stay still is boring, making tank explode would be funny)
     {
         gameOver = true;
     }

@@ -75,6 +75,10 @@ public class EnemyController : MonoBehaviour
             GameManager.instance.PlayerHurt();
             Destroy(gameObject);
         }
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Destroy(gameObject);
+        }
     }
 
 

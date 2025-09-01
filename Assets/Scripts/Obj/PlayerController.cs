@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     private float moveDir = 0f;
 
     public Rigidbody2D rb;
+    public Animator animator;
     private PlayerInput actionMap;
     private InputAction moveAction;
     private InputAction shootAction;
@@ -30,6 +31,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
         actionMap = GetComponent<PlayerInput>();
         actionMap.currentActionMap.Enable();
         InputSetup();
@@ -120,6 +122,20 @@ public class PlayerController : MonoBehaviour
 
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            if (canHurt)
+            {
+                GameManager.instance.PlayerHurt();
+                Destroy(collision.gameObject);
+                StartCoroutine("PlayerHurtCoroutine");
+            }
+        }
+    }
+
     IEnumerator PlayerHurtCoroutine() //only applies to player getting hit and not the enemies going past you
     {
         canHurt = false;

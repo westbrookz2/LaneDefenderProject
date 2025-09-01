@@ -997,16 +997,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 41590031698504328, guid: a7a048f6b329f0e4e97c9212b77f4711, type: 3}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
-    - target: {fileID: 41590031698504328, guid: a7a048f6b329f0e4e97c9212b77f4711, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 3278132883704066429, guid: a7a048f6b329f0e4e97c9212b77f4711, type: 3}
-      propertyPath: m_ApplyRootMotion
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6229874967299220752, guid: a7a048f6b329f0e4e97c9212b77f4711, type: 3}
       propertyPath: m_LocalPosition.x
