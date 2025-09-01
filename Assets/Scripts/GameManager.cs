@@ -58,6 +58,8 @@ public class GameManager : Singleton<GameManager>
     public void GameOver() //wondering how to show player game over (making the player stay still is boring, making tank explode would be funny)
     {
         gameOver = true;
+        _playerController.gameObject.SetActive(false);
+        Time.timeScale = 0f;
     }
 
 

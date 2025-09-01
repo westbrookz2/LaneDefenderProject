@@ -77,7 +77,7 @@ public class EnemyController : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Player"))
         {
-            Destroy(gameObject);
+            
         }
     }
 

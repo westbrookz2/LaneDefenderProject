@@ -136,7 +136,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.6, y: 0.15}
+  m_Size: {x: 0.6, y: 0.45}
   m_EdgeRadius: 0
 --- !u!50 &5458516025890058498
 Rigidbody2D:
@@ -180,7 +180,7 @@ MonoBehaviour:
   explosionPrefab: {fileID: 2936676177933102753, guid: 6b555ff9e4862b146a3ca0f72178a840, type: 3}
   _health: {fileID: 6692942612904504617}
   animator: {fileID: 6256381230415609284}
-  speed: 1.5
+  speed: 1
   scoreGain: 250
 --- !u!114 &6692942612904504617
 MonoBehaviour:
