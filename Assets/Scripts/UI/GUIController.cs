@@ -7,7 +7,7 @@ public class GUIController : MonoBehaviour
     [SerializeField] private TMP_Text _scoreText;
     [SerializeField] private TMP_Text _highScoreText;
     [SerializeField] private Animator _scoreAnimator;
-    [SerializeField] private GameObject _hitpointContainer;
+    [SerializeField] private GameObject[] _hitpoints;
     public Canvas GameOverScreen;
     
     void Start()
@@ -33,6 +33,7 @@ public class GUIController : MonoBehaviour
         {
             GameOverScreen.gameObject.SetActive(true);
         }
+        RefreshHitpoints();
     }
 
     private void RefreshScore()
@@ -52,8 +53,28 @@ public class GUIController : MonoBehaviour
     }
     private void RefreshHitpoints()
     {
-        //GameObject[] _hitpoints = _hitpointContainer.GetComponentsInChildren<GameObject>();
-        //Debug.Log(_hitpoints.Length);
-
+        switch (GameManager.instance._health.currentHealth)
+        {
+            case 0:
+                _hitpoints[0].SetActive(false);
+                _hitpoints[1].SetActive(false);
+                _hitpoints[2].SetActive(false);
+                break;
+            case 1:
+                _hitpoints[0].SetActive(true);
+                _hitpoints[1].SetActive(false);
+                _hitpoints[2].SetActive(false);
+                break;
+            case 2:
+                _hitpoints[0].SetActive(true);
+                _hitpoints[1].SetActive(true);
+                _hitpoints[2].SetActive(false);
+                break;
+            case 3:
+                _hitpoints[0].SetActive(true);
+                _hitpoints[1].SetActive(true);
+                _hitpoints[2].SetActive(true);
+                break;
+        }
     }
 }

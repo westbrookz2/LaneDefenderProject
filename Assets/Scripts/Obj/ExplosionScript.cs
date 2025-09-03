@@ -7,7 +7,7 @@ public class ExplosionScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        //SFXManager.instance.PlaySFX(shootSFX, transform, 0.7f);
+        SFXManager.instance.PlaySFX(shootSFX, transform, 0.7f);
         animator = GetComponent<Animator>();
         animator.SetTrigger("fire");
     }

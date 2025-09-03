@@ -178,6 +178,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionPrefab: {fileID: 2936676177933102753, guid: 6b555ff9e4862b146a3ca0f72178a840, type: 3}
+  damageSFX: {fileID: 8300000, guid: b1621bdf7b25d244793f2170114150e0, type: 3}
+  deathSFX: {fileID: 8300000, guid: 2fe23e369a5f33e43b0cb084b1763674, type: 3}
   _health: {fileID: 6692942612904504617}
   animator: {fileID: 6256381230415609284}
   speed: 2

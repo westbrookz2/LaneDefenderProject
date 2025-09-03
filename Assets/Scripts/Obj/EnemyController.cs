@@ -6,6 +6,7 @@ public class EnemyController : MonoBehaviour
     [Header("Instantiate")]
     public GameObject explosionPrefab;
     public AudioClip damageSFX;
+    public AudioClip deathSFX;
 
     [Header("Stats")]
     [SerializeField] private HealthScript _health;
@@ -44,6 +45,7 @@ public class EnemyController : MonoBehaviour
         animator.SetTrigger("hit");
         if (_health.isDead)
         {
+            SFXManager.instance.PlaySFX(deathSFX, transform, 1f);
             GameManager.instance.IncrementCurrentScore(scoreGain);
             rb.bodyType = RigidbodyType2D.Static;
             GetComponent<Collider2D>().enabled = false;

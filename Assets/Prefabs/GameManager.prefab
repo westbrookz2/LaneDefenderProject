@@ -47,9 +47,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsSingleton: 1
   IsPersistant: 1
+  lifeLostSFX: {fileID: 8300000, guid: a912737107a0af440997c10155b40269, type: 3}
   currentScore: 0
+  highestScore: 0
   gameOver: 0
-  _health: {fileID: 0}
+  _health: {fileID: 7347827736045172479}
   _playerController: {fileID: 0}
 --- !u!114 &7347827736045172479
 MonoBehaviour:

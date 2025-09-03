@@ -21,4 +21,9 @@ public class HealthScript : MonoBehaviour
             isDead = true;
         }
     }
+    public void ResetHealth()
+    {
+        currentHealth = maxHealth;
+        isDead = false;
+    }
 }

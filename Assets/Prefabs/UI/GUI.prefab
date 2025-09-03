@@ -345,7 +345,10 @@ MonoBehaviour:
   _scoreText: {fileID: 2586808241065320079}
   _highScoreText: {fileID: 4549261265146208430}
   _scoreAnimator: {fileID: 0}
-  _hitpointContainer: {fileID: 9038339186944464722}
+  _hitpoints:
+  - {fileID: 709974884972803402}
+  - {fileID: 2939856453292391327}
+  - {fileID: 5353076124561057640}
   GameOverScreen: {fileID: 0}
 --- !u!1 &5353076124561057640
 GameObject:

@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     public GameObject bulletPrefab;
     public GameObject explosionPrefab;
     public GameObject muzzlePos;
-    public AudioClip damageSFX;
+
 
     [Header("Stats")]
     public float moveSpeed = 30f;
@@ -37,6 +37,8 @@ public class PlayerController : MonoBehaviour
         actionMap = GetComponent<PlayerInput>();
         actionMap.currentActionMap.Enable();
         InputSetup();
+        canMove = true;
+        
     }
     private void InputSetup()
     {
@@ -116,13 +118,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            if (canHurt && gameObject.activeInHierarchy)
-            {
-                GameManager.instance.PlayerHurt();
-                StartCoroutine("PlayerHurtCoroutine");
-                SFXManager.instance.PlaySFX(damageSFX, collision.gameObject.transform, 1f);
-            }
-
+            PlayerHurt();
         }
     }
 
@@ -130,19 +126,22 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            if (canHurt && gameObject.activeInHierarchy)
-            {
-                SFXManager.instance.PlaySFX(damageSFX, collision.gameObject.transform, 1f);
-
-                GameManager.instance.PlayerHurt();
-                Destroy(collision.gameObject);
-                StartCoroutine("PlayerHurtCoroutine");
-            }
+            Destroy(collision.gameObject);
+            PlayerHurt();
         }
     }
 
+    private void PlayerHurt()
+    {
+        if (canHurt)
+        {
+            StartCoroutine("PlayerHurtCoroutine");
+        }
+    }
     IEnumerator PlayerHurtCoroutine() //only applies to player getting hit and not the enemies going past you
     {
+        GameManager.instance.PlayerHurt();
+        animator.SetTrigger("hit");
         canHurt = false;
         yield return new WaitForSeconds(1f);
         canHurt = true;
