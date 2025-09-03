@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.6862745}
+  m_Color: {r: 0.3018868, g: 0, b: 0, a: 0.74509805}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -142,8 +142,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Score: 4500'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1f8ed3c0eab7545498cce897b4d30999, type: 2}
+  m_sharedMaterial: {fileID: -3465419878890728318, guid: 1f8ed3c0eab7545498cce897b4d30999, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -278,15 +278,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: NEW HIGHSCORE!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0a51557aff0e14d4385b87548d48261d, type: 2}
-  m_sharedMaterial: {fileID: -493390764111748718, guid: 0a51557aff0e14d4385b87548d48261d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1f8ed3c0eab7545498cce897b4d30999, type: 2}
+  m_sharedMaterial: {fileID: -3465419878890728318, guid: 1f8ed3c0eab7545498cce897b4d30999, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4285726463
+  m_fontColor: {r: 1, g: 0.99426425, b: 0.4481132, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -311,7 +311,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -414,8 +414,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Highscore: 65000'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1f8ed3c0eab7545498cce897b4d30999, type: 2}
+  m_sharedMaterial: {fileID: -3465419878890728318, guid: 1f8ed3c0eab7545498cce897b4d30999, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -495,6 +495,7 @@ GameObject:
   - component: {fileID: 6027075947668752729}
   - component: {fileID: 5080945616829182587}
   - component: {fileID: 2789777948374994893}
+  - component: {fileID: 5984488020245025202}
   m_Layer: 5
   m_Name: GameOverScreen
   m_TagString: Untagged
@@ -590,6 +591,22 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &5984488020245025202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923156694234522227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f68e2bfeeef9e14f89726712ce5ca5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  finalScoreText: {fileID: 5889039593872957619}
+  highscoreText: {fileID: 4280303095716040978}
+  newHighscoreMessage: {fileID: 1721774698056386126}
+  retryButton: {fileID: 1907928982278763400}
 --- !u!1 &3111470281560774486
 GameObject:
   m_ObjectHideFlags: 0
@@ -655,10 +672,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Retry
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0a51557aff0e14d4385b87548d48261d, type: 2}
+  m_sharedMaterial: {fileID: -493390764111748718, guid: 0a51557aff0e14d4385b87548d48261d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -982,4 +999,16 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 890402936607487537}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5984488020245025202}
+        m_TargetAssemblyTypeName: GUI_GameOverScreenController, Assembly-CSharp
+        m_MethodName: RetryButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

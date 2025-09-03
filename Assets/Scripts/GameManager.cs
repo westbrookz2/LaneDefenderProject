@@ -8,11 +8,11 @@ using System;
 
 public class GameManager : Singleton<GameManager>
 {
-    //public event IncrementCurrentScore onScoreGained;
+    public static UnityEvent<int> scoreGained;
     public int currentScore = 0;
 
 
-    private int highestScore;
+    public int highestScore;
     public bool gameOver = false;
     [SerializeField] private HealthScript _health;
     [SerializeField] private PlayerController _playerController;
@@ -59,7 +59,7 @@ public class GameManager : Singleton<GameManager>
     {
         gameOver = true;
         _playerController.gameObject.SetActive(false);
-        Time.timeScale = 0f;
+        Time.timeScale = 0f; //looks better tweened 
     }
 
 

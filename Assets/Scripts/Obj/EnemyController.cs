@@ -5,6 +5,7 @@ public class EnemyController : MonoBehaviour
 {
     [Header("Instantiate")]
     public GameObject explosionPrefab;
+    public AudioClip damageSFX;
 
     [Header("Stats")]
     [SerializeField] private HealthScript _health;
@@ -49,6 +50,7 @@ public class EnemyController : MonoBehaviour
             animator.SetBool("dead", true);
         }
         StartCoroutine("MovementPauseCoroutine");
+        SFXManager.instance.PlaySFX(damageSFX, transform, 1f);
     }
     IEnumerator MovementPauseCoroutine()
     {

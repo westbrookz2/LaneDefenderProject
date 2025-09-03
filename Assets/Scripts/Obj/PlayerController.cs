@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     public GameObject bulletPrefab;
     public GameObject explosionPrefab;
     public GameObject muzzlePos;
+    public AudioClip damageSFX;
+
     [Header("Stats")]
     public float moveSpeed = 30f;
     private float moveDir = 0f;
@@ -114,10 +116,11 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            if (canHurt)
+            if (canHurt && gameObject.activeInHierarchy)
             {
                 GameManager.instance.PlayerHurt();
                 StartCoroutine("PlayerHurtCoroutine");
+                SFXManager.instance.PlaySFX(damageSFX, collision.gameObject.transform, 1f);
             }
 
         }
@@ -127,8 +130,10 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            if (canHurt)
+            if (canHurt && gameObject.activeInHierarchy)
             {
+                SFXManager.instance.PlaySFX(damageSFX, collision.gameObject.transform, 1f);
+
                 GameManager.instance.PlayerHurt();
                 Destroy(collision.gameObject);
                 StartCoroutine("PlayerHurtCoroutine");
