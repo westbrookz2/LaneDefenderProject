@@ -11,7 +11,7 @@ public class LaneController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        enemySpawnReady = true;
     }
 
     // Update is called once per frame
@@ -27,7 +27,10 @@ public class LaneController : MonoBehaviour
     private IEnumerator EnemySpawnCoroutine()
     {
         enemySpawnReady = false;
-        yield return new WaitForSeconds(1f);
+        float rndVariance = Random.Range(0.1f, 3f);
+        int _gameDifficulty = GameManager.instance.difficulty;
+
+        yield return new WaitForSeconds(1f + rndVariance / (_gameDifficulty+1));
         enemySpawnReady = true;
         SpawnEnemy();
     }
@@ -41,17 +44,27 @@ public class LaneController : MonoBehaviour
         //0 = fast (0.9% chance)
         //1 = mod (0.7% chance)
         //2 = tank (0.2% chance)
-        //int _oneOfTenChance = Random.Range(0, 9);
-        //switch (_oneOfTenChance)
-        //{
-        //    case 0:
-        //        break;
-        //    case 1:
-        //        break;
-        //    case 2:
-        //        break;
-        //}
-        EnemyController spawnedEnemy = Instantiate(enemies[_randomEnemy], transform.position, Quaternion.identity);
+        int _selectedEnemy = 0;
+        int _oneOfTenChance = Random.Range(0, 7);
+        switch (_oneOfTenChance)
+        {
+            case 0:
+                _selectedEnemy = 0; break;
+            case 1:
+                _selectedEnemy = 0; break;
+            case 2:
+                _selectedEnemy = 1; break;
+            case 3:
+                _selectedEnemy = 1; break;
+            case 4:
+                _selectedEnemy = 1; break;
+            case 5:
+                _selectedEnemy = 1; break;
+            case 6:
+                _selectedEnemy = 2; break;
+
+        }
+        EnemyController spawnedEnemy = Instantiate(enemies[_selectedEnemy], transform.position, Quaternion.identity);
     }
 
     private void OnDrawGizmos()

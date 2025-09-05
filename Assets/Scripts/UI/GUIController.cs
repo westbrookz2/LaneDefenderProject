@@ -13,12 +13,13 @@ public class GUIController : MonoBehaviour
     void Start()
     {
         _scoreAnimator = _scoreText.GetComponent<Animator>();
-    }
-    private void OnEnable()
-    {
         RefreshScore();
         RefreshHighscore();
         RefreshHitpoints();
+    }
+    private void OnEnable()
+    {
+
     }
     private void OnDestroy()
     {
@@ -28,12 +29,16 @@ public class GUIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RefreshScore();
-        if (GameManager.instance.gameOver)
+        if (GameManager.instance != null)
         {
-            GameOverScreen.gameObject.SetActive(true);
+            RefreshScore();
+            if (GameManager.instance.gameOver)
+            {
+                GameOverScreen.gameObject.SetActive(true);
+            }
+            RefreshHitpoints();
         }
-        RefreshHitpoints();
+
     }
 
     private void RefreshScore()

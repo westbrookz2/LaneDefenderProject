@@ -16,6 +16,7 @@ public class GUI_GameOverScreenController : MonoBehaviour
     private void OnEnable()
     {
         UpdateScoreTexts();
+        retryButton.Select();
     }
 
     private void UpdateScoreTexts()

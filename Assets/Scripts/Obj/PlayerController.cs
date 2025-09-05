@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     private InputAction moveAction;
     private InputAction shootAction;
     private InputAction resetAction;
+    private InputAction quitAction;
 
     private bool canMove = true;
     private bool canShoot = true;
@@ -32,14 +33,18 @@ public class PlayerController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+
+    }
+    private void OnEnable()
+    {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         actionMap = GetComponent<PlayerInput>();
+        canMove = true;
         actionMap.currentActionMap.Enable();
         InputSetup();
-        canMove = true;
-        
     }
+
     private void InputSetup()
     {
         moveAction = actionMap.currentActionMap.FindAction("Move");
@@ -54,6 +59,8 @@ public class PlayerController : MonoBehaviour
         resetAction = actionMap.currentActionMap.FindAction("Reset");
         resetAction.performed += Handle_Reset;
 
+        quitAction = actionMap.currentActionMap.FindAction("QuitGame");
+        quitAction.performed += Handle_QuitGame;
     }
     private void OnDestroy()
     {
@@ -62,6 +69,7 @@ public class PlayerController : MonoBehaviour
         shootAction.started -= Handle_Shoot;
         shootAction.canceled -= Handle_ShootStop;
         resetAction.performed -= Handle_Reset;
+        quitAction.performed -= Handle_QuitGame;
 
     }
 
@@ -170,6 +178,9 @@ public class PlayerController : MonoBehaviour
     {
         GameManager.instance.ResetGame();
     }
-
+    private void Handle_QuitGame(InputAction.CallbackContext obj)
+    {
+        GameManager.instance.QuitGame();
+    }
 
 }
